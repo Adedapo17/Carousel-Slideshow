@@ -4,6 +4,21 @@ let sliderContainer = document.querySelector('.carousel-list'),
     slideItems = document.querySelectorAll('.carousel_images'),
     current = 0;
 
+
+slideItems.forEach( item => {
+    item.addEventListener("mouseover", function() {
+        prev.style.display="block";
+        next.style.display="block";
+    })
+})
+
+slideItems.forEach(item => {
+    item.addEventListener("mouseout", function(){
+        prev.style.display="none";
+        next.style.display="none";
+    });
+});
+
 prev.addEventListener("mouseover", function(){
     prev.style.display="block";
     next.style.display="block";
@@ -23,7 +38,7 @@ function plusDivs(n) {
 
 function showDivs(n) {
   var i;
-  var x = document.querySelectorAll(".carousel_images");
+  var x = document.getElementsByClassName("carousel_images");
   if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
